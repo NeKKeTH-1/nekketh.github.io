@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Herramientas gratuitas online: calculadoras, conversores y generadores. Rápido, sin registro y gratis."/>
+  <meta name="keywords" content="herramientas online gratis, calculadora, conversor, generador contraseñas, contador palabras"/>
+  <title>HerraTools – Herramientas Gratuitas Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- ZONA ADSENSE: Reemplaza data-ad-client y data-ad-slot con tus datos reales -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  -->
+
+  <style>
+    :root {
+      --bg: #0c0c0f;
+      --surface: #15151a;
+      --surface2: #1e1e26;
+      --border: #2a2a35;
+      --accent: #f0e14a;
+      --accent2: #e07b3a;
+      --text: #f0eeea;
+      --muted: #7a7a8c;
+      --green: #3dffa0;
+      --radius: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(12,12,15,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 80px 40px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(240,225,74,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    .search-bar {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .search-bar:focus-within { border-color: var(--accent); }
+
+    .search-bar input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      padding: 14px 22px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+    .search-bar input::placeholder { color: var(--muted); }
+
+    .search-bar button {
+      background: var(--accent);
+      border: none;
+      color: #000;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .search-bar button:hover { background: #faf06e; }
+
+    /* ─── AD BANNER PLACEHOLDER ─── */
+    .ad-banner {
+      margin: 0 40px 40px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── TOOLS GRID ─── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .tool-card:hover {
+      border-color: rgba(240,225,74,0.3);
+      transform: translateY(-3px);
+      background: var(--surface2);
+    }
+    .tool-card:hover::before { opacity: 1; }
+
+    .tool-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .tool-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .tool-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .tool-tag {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-right: 4px;
+    }
+
+    .tool-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .tool-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* ─── MODAL / HERRAMIENTA ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+      animation: slideUp 0.25s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { color: var(--text); border-color: var(--text); }
+
+    .modal h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .modal .modal-desc {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+
+    /* Estilos de herramientas dentro del modal */
+    .tool-input {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .tool-input:focus { border-color: var(--accent); }
+
+    .tool-action-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 100px;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: background 0.2s;
+    }
+    .tool-action-btn:hover { background: #faf06e; }
+
+    .tool-result {
+      margin-top: 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      font-size: 0.9rem;
+      color: var(--green);
+      font-family: 'DM Mono', monospace;
+      word-break: break-all;
+      min-height: 60px;
+      display: none;
+    }
+    .tool-result.visible { display: block; }
+
+    .result-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Inline ad dentro del modal */
+    .modal-ad {
+      background: var(--bg);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 24px;
+    }
+
+    /* Controles para herramientas */
+    .flex-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .select-input {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      outline: none;
+      cursor: pointer;
+      flex: 1;
+    }
+    .number-input {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      width: 80px;
+      outline: none;
+    }
+    .range-row { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
+    .range-row input[type=range] { flex: 1; accent-color: var(--accent); }
+    .range-val { color: var(--accent); font-weight: 600; min-width: 30px; }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .checkbox-row input[type=checkbox] { accent-color: var(--accent); width: 16px; height: 16px; }
+
+    /* ─── STATS ─── */
+    .stats-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 56px;
+    }
+    .stat {
+      flex: 1;
+      padding: 24px 28px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+    .stat-label { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px 40px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 16px 20px; }
+      .hero { padding: 56px 20px 40px; }
+      main { padding: 0 20px 60px; }
+      .ad-banner { margin: 0 20px 30px; }
+      .stats-strip { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Herra<span>Tools</span></div>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Categorías</a>
+    <a href="#">Blog</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ 100% gratis · Sin registro</div>
+  <h1>Herramientas online<br><em>que realmente usas</em></h1>
+  <p>Calcula, convierte y genera en segundos. Sin instalar nada, sin crear cuenta.</p>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar herramienta…" id="searchInput" oninput="filterTools()">
+    <button>Buscar</button>
+  </div>
+</section>
+
+<!-- AD BANNER SUPERIOR (activa cuando tengas AdSense aprobado) -->
+<div class="ad-banner">
+  📢 Espacio publicitario – Google AdSense (728×90)
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<main>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Herramientas disponibles</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0€</div>
+      <div class="stat-label">Coste para el usuario</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Usos ilimitados</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Registros necesarios</div>
+    </div>
+  </div>
+
+  <!-- HERRAMIENTAS MÁS POPULARES -->
+  <div class="section-title">⚡ Populares</div>
+
+  <div class="tools-grid" id="toolsGrid">
+
+    <div class="tool-card" data-name="Generador de contraseñas seguras" onclick="openTool('password')">
+      <span class="tool-icon">🔐</span>
+      <div class="tool-name">Generador de Contraseñas</div>
+      <div class="tool-desc">Crea contraseñas seguras y aleatorias al instante. Elige longitud y tipo de caracteres.</div>
+      <span class="tool-tag">Seguridad</span>
+      <span class="tool-tag">Popular</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('password')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Contador de palabras y caracteres" onclick="openTool('wordcount')">
+      <span class="tool-icon">📝</span>
+      <div class="tool-name">Contador de Palabras</div>
+      <div class="tool-desc">Pega tu texto y obtén al instante el recuento de palabras, caracteres, oraciones y tiempo de lectura.</div>
+      <span class="tool-tag">Texto</span>
+      <span class="tool-tag">SEO</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('wordcount')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Conversor de unidades temperatura longitud peso" onclick="openTool('units')">
+      <span class="tool-icon">⚖️</span>
+      <div class="tool-name">Conversor de Unidades</div>
+      <div class="tool-desc">Convierte temperatura, longitud, peso y más. Resultados instantáneos sin botón de calcular.</div>
+      <span class="tool-tag">Matemáticas</span>
+      <span class="tool-tag">Ciencia</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('units')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Calculadora de porcentajes descuentos" onclick="openTool('percent')">
+      <span class="tool-icon">💰</span>
+      <div class="tool-name">Calculadora de Porcentajes</div>
+      <div class="tool-desc">¿Cuánto es el 15% de 340€? ¿Qué descuento tiene ese artículo? Respuestas al instante.</div>
+      <span class="tool-tag">Finanzas</span>
+      <span class="tool-tag">Compras</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('percent')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Generador de nombres de usuario nickname" onclick="openTool('username')">
+      <span class="tool-icon">🎭</span>
+      <div class="tool-name">Generador de Nombres</div>
+      <div class="tool-desc">Genera nicknames únicos y creativos para redes sociales, juegos o cualquier plataforma online.</div>
+      <span class="tool-tag">Creatividad</span>
+      <span class="tool-tag">Gaming</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('username')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Calculadora IMC índice masa corporal peso ideal" onclick="openTool('imc')">
+      <span class="tool-icon">🏃</span>
+      <div class="tool-name">Calculadora de IMC</div>
+      <div class="tool-desc">Calcula tu Índice de Masa Corporal y comprueba si tu peso está dentro del rango saludable.</div>
+      <span class="tool-tag">Salud</span>
+      <span class="tool-tag">Bienestar</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('imc')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Conversor de colores HEX RGB HSL" onclick="openTool('color')">
+      <span class="tool-icon">🎨</span>
+      <div class="tool-name">Conversor de Colores</div>
+      <div class="tool-desc">Convierte códigos de color entre HEX, RGB y HSL. Imprescindible para diseñadores y desarrolladores.</div>
+      <span class="tool-tag">Diseño</span>
+      <span class="tool-tag">Dev</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('color')">Usar gratis →</button>
+    </div>
+
+    <div class="tool-card" data-name="Calculadora de edad fecha nacimiento años meses dias" onclick="openTool('age')">
+      <span class="tool-icon">🎂</span>
+      <div class="tool-name">Calculadora de Edad</div>
+      <div class="tool-desc">Introduce tu fecha de nacimiento y descubre exactamente cuántos años, meses y días tienes.</div>
+      <span class="tool-tag">Fechas</span>
+      <span class="tool-tag">Útil</span>
+      <br><button class="tool-btn" onclick="event.stopPropagation(); openTool('age')">Usar gratis →</button>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 HerraTools · Herramientas gratuitas online · Hecho con ♥ en España
+</footer>
+
+<!-- ─── MODAL ─── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeOnOverlay(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalBody"></div>
+    <!-- AD dentro del modal -->
+    <div class="modal-ad">📢 Google AdSense (468×60) – Actívalo con tu código</div>
+  </div>
+</div>
+
+<script>
+// ─── DATOS DE HERRAMIENTAS ───────────────────────────────────────────────────
+const tools = {
+
+  password: {
+    title: '🔐 Generador de Contraseñas',
+    desc: 'Crea una contraseña segura y aleatoria con los parámetros que elijas.',
+    render() {
+      return `
+        <label style="color:var(--muted);font-size:.85rem">Longitud</label>
+        <div class="range-row">
+          <input type="range" min="6" max="64" value="16" id="pwLen" oninput="document.getElementById('pwLenVal').textContent=this.value; genPass()">
+          <span class="range-val" id="pwLenVal">16</span>
+        </div>
+        <div class="checkbox-row"><input type="checkbox" id="pwUpper" checked onchange="genPass()"> Mayúsculas (A-Z)</div>
+        <div class="checkbox-row"><input type="checkbox" id="pwNum" checked onchange="genPass()"> Números (0-9)</div>
+        <div class="checkbox-row"><input type="checkbox" id="pwSym" checked onchange="genPass()"> Símbolos (!@#$)</div>
+        <div class="tool-result visible" id="pwResult" style="font-size:1.1rem;letter-spacing:2px"></div>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="tool-action-btn" onclick="genPass()">⟳ Nueva contraseña</button>
+          <button class="copy-btn" onclick="copyText('pwResult')">Copiar</button>
+        </div>`;
+    },
+    init() { genPass(); }
+  },
+
+  wordcount: {
+    title: '📝 Contador de Palabras',
+    desc: 'Pega o escribe tu texto para ver estadísticas detalladas al instante.',
+    render() {
+      return `
+        <textarea class="tool-input" id="wcText" rows="6" placeholder="Pega tu texto aquí…" oninput="countWords()"></textarea>
+        <div class="tool-result visible" id="wcResult" style="color:var(--text);font-size:.9rem;line-height:1.8">
+          Empieza a escribir para ver los resultados ✍️
+        </div>`;
+    },
+    init() {}
+  },
+
+  units: {
+    title: '⚖️ Conversor de Unidades',
+    desc: 'Convierte entre las unidades más usadas de forma instantánea.',
+    render() {
+      return `
+        <div class="flex-row" style="margin-bottom:14px">
+          <select class="select-input" id="unitCat" onchange="updateUnitOptions()">
+            <option value="temp">🌡️ Temperatura</option>
+            <option value="length">📏 Longitud</option>
+            <option value="weight">⚖️ Peso</option>
+          </select>
+        </div>
+        <div class="flex-row">
+          <input type="number" class="tool-input" id="unitVal" placeholder="Valor" oninput="convertUnit()" style="flex:1">
+          <select class="select-input" id="unitFrom" onchange="convertUnit()" style="flex:1"></select>
+          <select class="select-input" id="unitTo" onchange="convertUnit()" style="flex:1"></select>
+        </div>
+        <div class="tool-result" id="unitResult"></div>`;
+    },
+    init() { updateUnitOptions(); }
+  },
+
+  percent: {
+    title: '💰 Calculadora de Porcentajes',
+    desc: 'Calcula porcentajes, descuentos e incrementos fácilmente.',
+    render() {
+      return `
+        <div style="margin-bottom:20px">
+          <label style="color:var(--muted);font-size:.85rem;display:block;margin-bottom:6px">¿Cuánto es el X% de Y?</label>
+          <div class="flex-row">
+            <input type="number" class="tool-input" id="pctPct" placeholder="%" style="max-width:100px" oninput="calcPct()">
+            <span style="align-self:center;color:var(--muted)">% de</span>
+            <input type="number" class="tool-input" id="pctNum" placeholder="Número" style="flex:1" oninput="calcPct()">
+          </div>
+          <div class="tool-result" id="pctResult1"></div>
+        </div>
+        <div>
+          <label style="color:var(--muted);font-size:.85rem;display:block;margin-bottom:6px">Precio con descuento</label>
+          <div class="flex-row">
+            <input type="number" class="tool-input" id="pctPrice" placeholder="Precio €" style="flex:1" oninput="calcDisc()">
+            <input type="number" class="tool-input" id="pctDisc" placeholder="Descuento %" style="max-width:130px" oninput="calcDisc()">
+          </div>
+          <div class="tool-result" id="pctResult2"></div>
+        </div>`;
+    },
+    init() {}
+  },
+
+  username: {
+    title: '🎭 Generador de Nombres',
+    desc: 'Genera nicknames únicos y creativos en un clic.',
+    render() {
+      return `
+        <div class="flex-row" style="margin-bottom:14px">
+          <select class="select-input" id="nameStyle">
+            <option value="cool">😎 Cool / Gamer</option>
+            <option value="cute">🌸 Cute / Kawaii</option>
+            <option value="pro">💼 Profesional</option>
+            <option value="fantasy">🧙 Fantasía</option>
+          </select>
+          <input type="text" class="tool-input" id="nameWord" placeholder="Palabra clave (opcional)" style="flex:2">
+        </div>
+        <button class="tool-action-btn" onclick="genUsername()">✨ Generar nombres</button>
+        <div class="tool-result" id="nameResult"></div>`;
+    },
+    init() { genUsername(); }
+  },
+
+  imc: {
+    title: '🏃 Calculadora de IMC',
+    desc: 'Calcula tu Índice de Masa Corporal y conoce tu rango de peso.',
+    render() {
+      return `
+        <div class="flex-row">
+          <div style="flex:1">
+            <label style="color:var(--muted);font-size:.82rem">Peso (kg)</label>
+            <input type="number" class="tool-input" id="imcWeight" placeholder="70" oninput="calcIMC()" style="margin-top:6px;width:100%">
+          </div>
+          <div style="flex:1">
+            <label style="color:var(--muted);font-size:.82rem">Altura (cm)</label>
+            <input type="number" class="tool-input" id="imcHeight" placeholder="175" oninput="calcIMC()" style="margin-top:6px;width:100%">
+          </div>
+        </div>
+        <div class="tool-result" id="imcResult"></div>`;
+    },
+    init() {}
+  },
+
+  color: {
+    title: '🎨 Conversor de Colores',
+    desc: 'Convierte entre HEX, RGB y HSL. Ve el color en tiempo real.',
+    render() {
+      return `
+        <div class="flex-row" style="align-items:center;margin-bottom:16px">
+          <input type="color" id="colorPicker" value="#f0e14a" oninput="syncFromPicker()" style="width:60px;height:50px;border:none;background:none;cursor:pointer;border-radius:8px">
+          <span style="color:var(--muted);font-size:.85rem">← Elige un color</span>
+        </div>
+        <div style="margin-bottom:10px">
+          <label style="color:var(--muted);font-size:.82rem">HEX</label>
+          <input type="text" class="tool-input" id="colorHex" placeholder="#f0e14a" oninput="fromHex()" style="margin-top:4px;width:100%">
+        </div>
+        <div class="flex-row">
+          <div style="flex:1"><label style="color:var(--muted);font-size:.82rem">R</label><input type="number" class="tool-input" id="colorR" min="0" max="255" oninput="fromRGB()" style="margin-top:4px;width:100%"></div>
+          <div style="flex:1"><label style="color:var(--muted);font-size:.82rem">G</label><input type="number" class="tool-input" id="colorG" min="0" max="255" oninput="fromRGB()" style="margin-top:4px;width:100%"></div>
+          <div style="flex:1"><label style="color:var(--muted);font-size:.82rem">B</label><input type="number" class="tool-input" id="colorB" min="0" max="255" oninput="fromRGB()" style="margin-top:4px;width:100%"></div>
+        </div>
+        <div class="tool-result visible" id="colorResult" style="margin-top:16px;color:var(--text)"></div>`;
+    },
+    init() { syncFromPicker(); }
+  },
+
+  age: {
+    title: '🎂 Calculadora de Edad',
+    desc: 'Descubre exactamente cuántos años, meses y días tienes hoy.',
+    render() {
+      return `
+        <label style="color:var(--muted);font-size:.85rem">Tu fecha de nacimiento</label>
+        <input type="date" class="tool-input" id="ageDate" oninput="calcAge()" style="margin-top:8px;width:100%">
+        <div class="tool-result" id="ageResult"></div>`;
+    },
+    init() {}
+  }
+};
+
+// ─── LÓGICA GENERAL ───────────────────────────────────────────────────────────
+function openTool(id) {
+  const t = tools[id];
+  document.getElementById('modalBody').innerHTML = `
+    <h2>${t.title}</h2>
+    <p class="modal-desc">${t.desc}</p>
+    ${t.render()}
+  `;
+  document.getElementById('modalOverlay').classList.add('active');
+  t.init();
+}
+
+function closeModal() { document.getElementById('modalOverlay').classList.remove('active'); }
+function closeOnOverlay(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+
+function copyText(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent.trim());
+  const btn = el.parentNode.querySelector('.copy-btn');
+  if (btn) { btn.textContent = '✓ Copiado'; setTimeout(() => btn.textContent = 'Copiar', 1500); }
+}
+
+function filterTools() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.tool-card').forEach(c => {
+    c.style.display = c.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// ─── HERRAMIENTA: CONTRASEÑAS ─────────────────────────────────────────────────
+function genPass() {
+  const len = +document.getElementById('pwLen').value;
+  let chars = 'abcdefghijklmnopqrstuvwxyz';
+  if (document.getElementById('pwUpper').checked) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if (document.getElementById('pwNum').checked) chars += '0123456789';
+  if (document.getElementById('pwSym').checked) chars += '!@#$%&*+-=?';
+  let pass = '';
+  for (let i = 0; i < len; i++) pass += chars[Math.floor(Math.random() * chars.length)];
+  document.getElementById('pwResult').textContent = pass;
+}
+
+// ─── HERRAMIENTA: CONTADOR PALABRAS ──────────────────────────────────────────
+function countWords() {
+  const txt = document.getElementById('wcText').value;
+  const words = txt.trim() ? txt.trim().split(/\s+/).length : 0;
+  const chars = txt.length;
+  const charsNoSpace = txt.replace(/\s/g,'').length;
+  const sentences = txt.split(/[.!?]+/).filter(s => s.trim()).length;
+  const readTime = Math.ceil(words / 200);
+  document.getElementById('wcResult').innerHTML =
+    `📖 <b style="color:var(--accent)">${words}</b> palabras &nbsp;|&nbsp; 
+     <b style="color:var(--accent)">${chars}</b> caracteres &nbsp;|&nbsp; 
+     <b style="color:var(--accent)">${charsNoSpace}</b> sin espacios<br>
+     📝 <b style="color:var(--accent)">${sentences}</b> oraciones &nbsp;|&nbsp; 
+     ⏱️ Lectura: ~<b style="color:var(--accent)">${readTime}</b> min`;
+}
+
+// ─── HERRAMIENTA: CONVERSOR UNIDADES ─────────────────────────────────────────
+const unitData = {
+  temp: { units: ['°C','°F','K'], convert(v,f,t) {
+    let c = f==='°F'? (v-32)*5/9 : f==='K'? v-273.15 : v;
+    return t==='°C'? c : t==='°F'? c*9/5+32 : c+273.15;
+  }},
+  length: { units: ['m','km','cm','mm','mi','ft','in'], factors: [1,1000,0.01,0.001,1609.34,0.3048,0.0254],
+    convert(v,f,t) {
+      const u = ['m','km','cm','mm','mi','ft','in'], fc = [1,1000,0.01,0.001,1609.34,0.3048,0.0254];
+      return v * fc[u.indexOf(f)] / fc[u.indexOf(t)];
+    }
+  },
+  weight: { units: ['kg','g','lb','oz','t'], factors: [1,0.001,0.4536,0.02835,1000],
+    convert(v,f,t) {
+      const u=['kg','g','lb','oz','t'], fc=[1,0.001,0.4536,0.02835,1000];
+      return v * fc[u.indexOf(f)] / fc[u.indexOf(t)];
+    }
+  }
+};
+function updateUnitOptions() {
+  const cat = document.getElementById('unitCat').value;
+  const units = unitData[cat].units;
+  ['unitFrom','unitTo'].forEach((id,i) => {
+    const s = document.getElementById(id);
+    s.innerHTML = units.map((u,j) => `<option value="${u}" ${(i===0&&j===0)||(i===1&&j===1)?'selected':''}>${u}</option>`).join('');
+  });
+  convertUnit();
+}
+function convertUnit() {
+  const cat = document.getElementById('unitCat').value;
+  const v = parseFloat(document.getElementById('unitVal').value);
+  if (isNaN(v)) return;
+  const f = document.getElementById('unitFrom').value;
+  const t = document.getElementById('unitTo').value;
+  const res = unitData[cat].convert(v, f, t);
+  const r = document.getElementById('unitResult');
+  r.textContent = `${v} ${f} = ${+res.toFixed(6)} ${t}`;
+  r.classList.add('visible');
+}
+
+// ─── HERRAMIENTA: PORCENTAJES ─────────────────────────────────────────────────
+function calcPct() {
+  const pct = parseFloat(document.getElementById('pctPct').value);
+  const num = parseFloat(document.getElementById('pctNum').value);
+  const r = document.getElementById('pctResult1');
+  if (!isNaN(pct) && !isNaN(num)) {
+    r.textContent = `El ${pct}% de ${num} = ${+(pct*num/100).toFixed(4)}`;
+    r.classList.add('visible');
+  }
+}
+function calcDisc() {
+  const price = parseFloat(document.getElementById('pctPrice').value);
+  const disc = parseFloat(document.getElementById('pctDisc').value);
+  const r = document.getElementById('pctResult2');
+  if (!isNaN(price) && !isNaN(disc)) {
+    const saved = price * disc / 100;
+    r.textContent = `Precio final: ${(price-saved).toFixed(2)}€ (ahorras ${saved.toFixed(2)}€)`;
+    r.classList.add('visible');
+  }
+}
+
+// ─── HERRAMIENTA: NOMBRES ─────────────────────────────────────────────────────
+function genUsername() {
+  const style = document.getElementById('nameStyle').value;
+  const word = document.getElementById('nameWord').value.trim();
+  const pools = {
+    cool: ['Shadow','Wolf','Storm','Dark','Blade','Night','Frost','Blaze','Iron','Neo'],
+    cute: ['Mochi','Bunny','Candy','Luna','Star','Kiko','Petal','Honey','Angel','Nori'],
+    pro: ['Dev','Tech','Pro','Lead','Work','Flow','Max','Core','Apex','Hub'],
+    fantasy: ['Aether','Rune','Dusk','Elf','Mage','Saga','Vale','Zephyr','Arcane','Ember']
+  };
+  const suffixes = ['99','_','42','X','Pro','Z','2k','One',''];
+  const pick = (arr) => arr[Math.floor(Math.random()*arr.length)];
+  const base = word || pick(pools[style]);
+  const results = Array.from({length:5}, () => `${pick(pools[style])}${base}${pick(suffixes)}`);
+  document.getElementById('nameResult').innerHTML = results.join('\n');
+  document.getElementById('nameResult').classList.add('visible');
+}
+
+// ─── HERRAMIENTA: IMC ─────────────────────────────────────────────────────────
+function calcIMC() {
+  const w = parseFloat(document.getElementById('imcWeight').value);
+  const h = parseFloat(document.getElementById('imcHeight').value) / 100;
+  const r = document.getElementById('imcResult');
+  if (isNaN(w) || isNaN(h) || h <= 0) return;
+  const imc = w / (h*h);
+  let cat = imc < 18.5 ? '⚠️ Bajo peso' : imc < 25 ? '✅ Peso normal' : imc < 30 ? '⚠️ Sobrepeso' : '🔴 Obesidad';
+  r.textContent = `IMC: ${imc.toFixed(1)} → ${cat}`;
+  r.classList.add('visible');
+}
+
+// ─── HERRAMIENTA: COLORES ─────────────────────────────────────────────────────
+function hexToRgb(hex) {
+  const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return r ? [parseInt(r[1],16), parseInt(r[2],16), parseInt(r[3],16)] : null;
+}
+function rgbToHsl(r,g,b) {
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b);
+  let h,s,l=(max+min)/2;
+  if(max===min) { h=s=0; } else {
+    const d=max-min; s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break;}
+    h/=6;
+  }
+  return [Math.round(h*360), Math.round(s*100), Math.round(l*100)];
+}
+function syncFromPicker() {
+  const hex = document.getElementById('colorPicker').value;
+  document.getElementById('colorHex').value = hex;
+  const [r,g,b] = hexToRgb(hex);
+  document.getElementById('colorR').value = r;
+  document.getElementById('colorG').value = g;
+  document.getElementById('colorB').value = b;
+  showColorResult(hex, r, g, b);
+}
+function fromHex() {
+  const hex = document.getElementById('colorHex').value;
+  const rgb = hexToRgb(hex); if (!rgb) return;
+  document.getElementById('colorPicker').value = hex;
+  document.getElementById('colorR').value = rgb[0];
+  document.getElementById('colorG').value = rgb[1];
+  document.getElementById('colorB').value = rgb[2];
+  showColorResult(hex, ...rgb);
+}
+function fromRGB() {
+  const r=+document.getElementById('colorR').value, g=+document.getElementById('colorG').value, b=+document.getElementById('colorB').value;
+  const hex = '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');
+  document.getElementById('colorHex').value = hex;
+  document.getElementById('colorPicker').value = hex;
+  showColorResult(hex, r, g, b);
+}
+function showColorResult(hex, r, g, b) {
+  const [h,s,l] = rgbToHsl(r,g,b);
+  const el = document.getElementById('colorResult');
+  el.innerHTML = `<div style="width:100%;height:40px;border-radius:8px;background:${hex};margin-bottom:12px;border:1px solid rgba(255,255,255,0.1)"></div>
+    <span style="color:var(--muted)">HEX</span> ${hex} &nbsp; <span style="color:var(--muted)">RGB</span> ${r}, ${g}, ${b} &nbsp; <span style="color:var(--muted)">HSL</span> ${h}°, ${s}%, ${l}%`;
+}
+
+// ─── HERRAMIENTA: EDAD ───────────────────────────────────────────────────────
+function calcAge() {
+  const val = document.getElementById('ageDate').value;
+  if (!val) return;
+  const born = new Date(val);
+  const now = new Date();
+  let years = now.getFullYear() - born.getFullYear();
+  let months = now.getMonth() - born.getMonth();
+  let days = now.getDate() - born.getDate();
+  if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+  if (months < 0) { years--; months += 12; }
+  const totalDays = Math.floor((now - born) / 86400000);
+  const r = document.getElementById('ageResult');
+  r.textContent = `🎂 ${years} años, ${months} meses y ${days} días\n📅 Total: ${totalDays.toLocaleString()} días vividos`;
+  r.classList.add('visible');
+}
+
+// ESC cierra modal
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
